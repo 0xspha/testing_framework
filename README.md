@@ -1,48 +1,88 @@
 # Testing Framework for Plaza
 
-This document contains information related to the development of the testing framework for Plaza
-The requirements as per <a href="https://github.com/paritytech/success_repo/issues/67">GithHub issue</a>
+This document outlines the development of the testing framework for Plaza. It is designed to fulfill the requirements detailed in [GitHub issue #67](https://github.com/paritytech/success_repo/issues/67).
 
 ## Requirements
 
-Develop and implement automated compatibility testing for web3.js and ethers.js with Westend Asset Hub's EVM-compatible smart contracts.
+The primary objective is to develop and implement automated compatibility testing for **web3.js** and **ethers.js** with Westend Asset Hub's EVM-compatible smart contracts.
 
-**Key Deliverables:**
+### Key Deliverables
 
-- Test DApps for web3.js and ethers.js
-- Automated test suites for both libraries
+- Develop test DApps for **web3.js** and **ethers.js**.
+- Create automated test suites for both libraries.
 
-**Milestones:**
+### Milestones
 
-- Research and planning
-- Development of test DApps
-- Implementation of automated tests
-- Integration and optimization
+1. Research and planning.
+2. Development of test DApps.
+3. Implementation of automated tests.
+4. Integration and optimization of the testing framework.
 
-# Table of contents
+---
 
-1. [Research and Planning](#Research)
-   1. [Planning](#Planning)
-2. [Development of test DApps](#Development)
-3. [Implementation of automated tests](#Testing)
-4. [Integration and optimization](#Integration)
+## Table of Contents
 
-# Research
+- [Testing Framework for Plaza](#testing-framework-for-plaza)
+  - [Requirements](#requirements)
+    - [Key Deliverables](#key-deliverables)
+    - [Milestones](#milestones)
+  - [Table of Contents](#table-of-contents)
+  - [Research and Planning](#research-and-planning)
+    - [Key Insights from Research](#key-insights-from-research)
+      - [CLI Integration](#cli-integration)
+      - [Extending Functionality](#extending-functionality)
+      - [Compiler Modifications](#compiler-modifications)
+    - [Planning](#planning)
+  - [Development of Test DApps](#development-of-test-dapps)
+  - [Implementation of Automated Tests](#implementation-of-automated-tests)
+  - [Integration and Optimization](#integration-and-optimization)
 
-The research phase consist of conducting a market analysis of existing tooling developed by other ecosystems such that we can get inspiration for the direction of testing framework
-as of now my primary focus will be getting <a href="https://book.getfoundry.sh/">Foundry</a> to work with <a href="https://github.com/paritytech/revive/tree/main">PVM</a> essentially allowing developers to compile their smartcointract using PVM
-most of the work will be inspired by <a href="https://github.com/matter-labs/foundry-zksync">Foundry zksync</a>.
-From the research ive done on how to adapt foundry to work with PVM ive gathered the following 
-There are several parts to getting foundry to work 
-- CLI
-The cli portion involves having to add new CLI commands that are specific to compiling with revive or compiling to solidity compatible with the PVM
-an example of how zksync has done this please see <a href="https://github.com/matter-labs/foundry-zksync/blob/main/crates/cli/src/opts/build/zksync.rs">here</a> these options are then intergrated everywhere in foundry where CLI arguments are used
-see example <a href="https://github.com/matter-labs/foundry-zksync/blob/main/crates/cli/src/opts/build/mod.rs">here</a>
--  
-## Planning
+---
 
-# Development
+## Research and Planning
 
-# Testing
+The research phase focuses on conducting a market analysis of existing tools and frameworks in other ecosystems to derive insights and inspiration for the development of this testing framework. 
 
-# Integration
+The current emphasis is on adapting [Foundry](https://book.getfoundry.sh/) to work with the [Parity Virtual Machine (PVM)](https://github.com/paritytech/revive/tree/main). This will enable developers to compile smart contracts for the PVM. Much of this work will be inspired by the [Foundry zkSync](https://github.com/matter-labs/foundry-zksync) project.
+
+### Key Insights from Research
+
+Several components need to be developed to adapt Foundry to the PVM:
+
+#### CLI Integration
+- New CLI commands will be introduced to support compiling with **revive** or Solidity compatibility for the PVM. 
+- Example: [CLI commands in Foundry zkSync](https://github.com/matter-labs/foundry-zksync/blob/main/crates/cli/src/opts/build/zksync.rs).
+- These options will be integrated across all Foundry CLI arguments, as shown in the [build options](https://github.com/matter-labs/foundry-zksync/blob/main/crates/cli/src/opts/build/mod.rs).
+
+#### Extending Functionality
+- The following areas of Foundry functionality will be extended:
+  1. **Compilation**: Adding functionality to build contracts using revive, similar to [this approach in Foundry zkSync](https://github.com/matter-labs/foundry-zksync/blob/main/crates/common/src/compile.rs).
+  2. **Contract Verification**: Implementing a verification flow, as seen in [Foundry zkSync’s contract verification module](https://github.com/matter-labs/foundry-zksync/tree/main/crates/verify/src/zksync).
+  3. **Testing**: Setting up testing environments, including in-memory nodes, as demonstrated in [this testing utility](https://github.com/matter-labs/foundry-zksync/blob/main/crates/test-utils/src/zksync.rs).
+  4. Additional insights will be gathered to understand the purpose of the [zksync folder](https://github.com/matter-labs/foundry-zksync/tree/main/crates/zksync).
+
+#### Compiler Modifications
+- The Foundry compiler backend will require updates to support a custom Solidity compiler, similar to zkSync’s **zksolc** implementation.
+- Reference: [Compiler adaptations in Foundry zkSync](https://github.com/Moonsong-Labs/compilers).
+
+### Planning
+
+The planning phase will establish a roadmap for integrating the above functionalities into the testing framework.
+
+---
+
+## Development of Test DApps
+
+*(Details to be added based on progress.)*
+
+---
+
+## Implementation of Automated Tests
+
+*(Details to be added based on progress.)*
+
+---
+
+## Integration and Optimization
+
+*(Details to be added based on progress.)*
