@@ -1,7 +1,13 @@
 # Testing Framework for Plaza
 
-This document outlines the development of the testing framework for Plaza. It is designed to fulfill the requirements detailed in [GitHub issue #67](https://github.com/paritytech/success_repo/issues/67).
+For Westend Asset Hub (rpc: https://westend-asset-hub-eth-rpc.polkadot.io ) which now supports EVM-compatible smart contracts, we would like to ensure that the most commonly developer tooling works out of the box. The list below is non-exhaustive but is our scope for now as these are the most important for new developers wanting to work with SCs on Polkadot. Once these have automated testing in place, we can move onto the hardhat plugin. 
 
+- [ ] web3.js
+- [ ] ethers.js
+
+Since these are libraries it would be good to start out with some research on how to approach testing for these (most common use-cases in the form of test dapps- see https://github.com/MetaMask/test-dapp for inspiration). There may be some overlap with the already existing RPC compatibility tests https://github.com/bee344/evm-tests (from @IkerAlus 's team) so we'll want to make sure there isn't any duplicated work here and perhaps it's possible to leverage some of their work.
+
+Deliverables here would be a test dapp for both web3.js and ethers.js, which is able to run automated tests on to ensure compatibility.
 ## Requirements
 
 The primary objective is to develop and implement automated compatibility testing for **web3.js** and **ethers.js** with Westend Asset Hub's EVM-compatible smart contracts.
